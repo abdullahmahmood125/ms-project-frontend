@@ -1,0 +1,24 @@
+<div class="row page-login screen-height">
+  <div class="col-md-6 logo-grid">
+    <h1><a class="angus-logo" routerLink="/">
+        <img class="screen-lg" src="assets/images/app-logo.png">
+      </a></h1>
+  </div>
+  <div class="col-sm-6 login-grid">
+    <div class="card form-card">
+      <div class="card-body">
+        <h6 class="card-title">{{ 'ms_project' | translate }}</h6>
+        <h4 class="card-title">
+          {{ errorMsgs.hasOwnProperty(statusCode) ? (errorMsgs[statusCode] | translate) : statusCode }}</h4>
+        <div class="form-group">
+          <label>{{ (errorMsgs.hasOwnProperty(statusCode) ? errorDetails[statusCode] : errorDetails[defaultStatus]) | translate }}</label>
+        </div>
+        <div class="form-group">
+          <button type="button" routerLink="/" class="btn-round btn btn-primary">
+            {{'back_to_home' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

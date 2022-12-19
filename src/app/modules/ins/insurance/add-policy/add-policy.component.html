@@ -1,0 +1,93 @@
+<div class="row card page-card px-3">
+    <div class="col-md-8">
+        <form [formGroup]="form">
+            <div class="form-section">
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'name' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="name" class="form-control"
+                                [placeholder]="'name' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'name' | translate"
+                            [errorObject]="formService.getErrors('name')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'Insurance Company' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <ng-select class="w-100" style="flex:1 1 auto" [items]="companies" bindLabel="name"
+                                bindValue="id" formControlName="insCompanyId" [ngModel]="form.get('insCompanyId').value"
+                                [placeholder]="'Insurance Company' | translate" (change)="getBranchesByCompanyId()">
+                            </ng-select>
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'Insurance Company' | translate"
+                            [errorObject]="formService.getErrors('insCompanyId')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'Insurance Company Branch' | translate }}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <ng-select class="w-100" style="flex:1 1 auto" [items]="branches" bindLabel="label"
+                                bindValue="id" formControlName="insCompanyBranchId" [ngModel]="form.get('insCompanyBranchId').value"
+                                [placeholder]="'Insurance Company Branch' | translate" [readonly]="!form.get('insCompanyId').value">
+                            </ng-select>
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'Insurance Company Branch' | translate"
+                            [errorObject]="formService.getErrors('insCompanyBranchId')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'price' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="buyingPrice" class="form-control"
+                                [placeholder]="'price' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'price' | translate"
+                            [errorObject]="formService.getErrors('buyingPrice')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'Max Limit' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="maxLimit" class="form-control"
+                                [placeholder]="'Max Limit' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'Max Limit' | translate"
+                            [errorObject]="formService.getErrors('maxLimit')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'Per Day Limit' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="perDayLimit" class="form-control"
+                                [placeholder]="'Per Day Limit' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'Per Day Limit' | translate"
+                            [errorObject]="formService.getErrors('perDayLimit')"></app-form-errors>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <div class="form-group btns-group col-sm-8 text-right btns-salebook mrgn-left">
+        <button type="button" class="btn-round btn btn-secondary" [routerLink]="routerLink">
+            {{'cancel' | translate}}
+        </button>
+        <button type="button" class="btn-round btn btn-green" (click)="submit()">
+            {{'save' | translate}}
+         </button>
+    </div>
+</div>

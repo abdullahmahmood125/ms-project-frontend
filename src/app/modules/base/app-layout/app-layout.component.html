@@ -1,0 +1,22 @@
+<div class="container-fluid fadeIn">
+  <div class="row row-eq-height screen-height">
+    <ngx-loading-bar [includeSpinner]="true"></ngx-loading-bar>
+    <div *ngIf="auth.success" class="col-xl-2 col-md-1 nav-sidebar animated fadeIn faster p-0" [class.d-none]="isFullScreen">
+      <app-sidebar></app-sidebar>
+      <div class="footer-credits left-panel-poweredby d-none d-xl-block">
+        <span class="d-flex align-items-center"><i></i>powered by<img src="assets/images/fast-logo.png" class="ml-2"
+          width="120" alt="" /></span>
+      </div>
+    </div>
+    <div [class.col-xl-10]="!isFullScreen && auth.success" [class.offset-xl-2]="!isFullScreen && auth.success" [class.col-md-11]="!isFullScreen && auth.success"
+      [class.offset-md-1]="!isFullScreen && auth.success" [class.main-content-wrapper]="auth.success" [class.fullsticky]="isFullScreen && auth.success"
+      [class.col-sm-12]="(isFullScreen && auth.success) || !auth.success" [class.pad0]="(isFullScreen && auth.success) || !auth.success">
+      <app-navbar *ngIf="!isFullScreen && auth.success"></app-navbar>
+      <div [class.container-fluid]="!auth.success">
+        <router-outlet></router-outlet>
+      </div>
+      <footer *ngIf="auth.success" class="angus-footer d-none">© Copyright 2022, All Rights Reserved.
+      </footer>
+    </div>
+  </div>
+</div>

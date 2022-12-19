@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3 d-flex align-items-center my-3">
+            <button type="button" class="btn btn-green mr-2" [routerLink]="routerLink">{{'create'|translate}}</button>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-assign-to-team table-striped table-page-layout">
+            <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>
+                <div class="d-flex align-items-center">
+                  {{'name'|translate}}
+                </div>
+              </th>
+              <th>
+                <div class="d-flex align-items-center">
+                  {{'bank'|translate}}
+                </div>
+              </th>
+              <th>
+                <div class="d-flex align-items-center">
+                  {{'city'|translate}}
+                </div>
+              </th>
+              <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let data of dataRows; let i= index;">
+              <td></td>
+              <td>{{ data.name }}</td>
+              <td>{{ findCompanyById(data.insCompanyId)?.name }}</td>
+              <td>{{ commonService.findCityById(data.cityId)?.label }}</td>
+              <td>
+                <div class="d-flex">
+                  <button type="button" class="btn list-btn" [routerLink]="[routerLink + data.id]"
+                    title="Preview" routerlink><i class="aicon-eye1"></i></button>
+                  <button type="button" class="btn list-btn" (click)="deleteById(data.id)"
+                    title="Preview" routerlink><i class="aicon-trash1"></i></button>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <br>
+        </div>
+    </div>
+</div>

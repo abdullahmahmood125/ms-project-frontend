@@ -1,0 +1,14 @@
+<small class="text-danger">
+  <ul *ngIf="errors.length">
+    <li *ngFor="let error of errors" class="animated slideInUp faster">{{fieldName| translate:null:null:'UCF'}}
+      <ng-container>{{helpingVerb|translate:null:null:'L'}}</ng-container>
+      <!--<ng-container *ngIf="singular">{{'is'|translate:null:null:'L'}}</ng-container>
+      <ng-container *ngIf="!singular">{{'are'|translate:null:null:'L'}}</ng-container>-->
+      {{error|translate:null:null:'L'}}
+    </li>
+  </ul>
+
+  <ul *ngIf="serverErrors">
+    <li *ngFor="let error of serverErrors">{{error| translate }}</li>
+  </ul>
+</small>

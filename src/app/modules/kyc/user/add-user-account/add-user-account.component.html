@@ -1,0 +1,109 @@
+<div class="row card page-card px-3">
+    <div class="col-md-8">
+        <form [formGroup]="form">
+            <div class="form-section">
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'User' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <ng-select class="w-100" style="flex:1 1 auto" [items]="users" bindLabel="userName"
+                                bindValue="id" formControlName="kycUserId" [ngModel]="form.get('kycUserId').value"
+                                [placeholder]="'User' | translate">
+                            </ng-select>
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'User' | translate"
+                            [errorObject]="formService.getErrors('kycUserId')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'Bank' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <ng-select class="w-100" style="flex:1 1 auto" [items]="banks" bindLabel="name"
+                                bindValue="id" formControlName="bankId" [ngModel]="form.get('bankId').value"
+                                [placeholder]="'Bank' | translate" (change)="getBankBranchesByBankId()">
+                            </ng-select>
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'Bank' | translate"
+                            [errorObject]="formService.getErrors('bankId')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'Bank Branch' | translate }}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <ng-select class="w-100" style="flex:1 1 auto" [items]="branches" bindLabel="label"
+                                bindValue="id" formControlName="branchId" [ngModel]="form.get('branchId').value"
+                                [placeholder]="'Bank Branch' | translate" [readonly]="!form.get('bankId').value">
+                            </ng-select>
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'Bank Branch' | translate"
+                            [errorObject]="formService.getErrors('branchId')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'Account No.' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="accountNo" class="form-control"
+                                [placeholder]="'Account No.' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'Account No.' | translate"
+                            [errorObject]="formService.getErrors('accountNo')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'Account Type' | translate }}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <ng-select class="w-100" style="flex:1 1 auto" [items]="commonService.accountTypes" bindLabel="label"
+                                bindValue="id" formControlName="accountType" [ngModel]="form.get('accountType').value"
+                                [placeholder]="'Account Type' | translate" [readonly]="!form.get('bankId').value">
+                            </ng-select>
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'Account Type' | translate"
+                            [errorObject]="formService.getErrors('accountType')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'Opening Balance' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="openingBalance" class="form-control"
+                                [placeholder]="'Opening Balance' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'Opening Balance' | translate"
+                            [errorObject]="formService.getErrors('openingBalance')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'Current Balance' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="currentBalance" class="form-control"
+                                [placeholder]="'Current Balance' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'Current Balance' | translate"
+                            [errorObject]="formService.getErrors('currentBalance')"></app-form-errors>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <div class="form-group btns-group col-sm-8 text-right btns-salebook mrgn-left">
+        <button type="button" class="btn-round btn btn-secondary" [routerLink]="routerLink">
+            {{'cancel' | translate}}
+        </button>
+        <button type="button" class="btn-round btn btn-green" (click)="submit()">
+            {{'save' | translate}}
+         </button>
+    </div>
+</div>

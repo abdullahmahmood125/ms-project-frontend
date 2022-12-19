@@ -1,0 +1,116 @@
+<div style="background: black;">
+  <a class="angus-logo" routerLink="/user/dashboard">
+    <img src="assets/images/app-logo.png">
+  </a>
+  <button type="button" class="btn btn-link d-md-none menu-btn" (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+    <i class="aicon-bars1"></i>
+  </button>
+</div>
+<div id="collapseExample" [ngbCollapse]="isCollapsed">
+  <nav class="navbar mb-3">
+    <!-- navbar-expand-lg -->
+    <div class="nav-container" id="navbarNav">
+      <ul>
+        <li *ngFor="let item1 of commonService.userArtifacts">
+          <a routerLinkActive="active" [routerLink]="item1.path">
+            <span class="d-md-none d-xl-inline">{{item1.name}}</span>
+            <i [class]="item1.icon"></i>
+          </a>
+          <ul *ngIf="item1.childList">
+            <li *ngFor="let item2 of item1.childList">
+              <a routerLinkActive="active" [routerLink]="item2.path">
+                <span class="d-md-none d-xl-inline">{{item2.name}}</span>
+                <i [class]="item2.icon"></i>
+              </a>
+              <ul *ngIf="item2.childList">
+                <li *ngFor="let item3 of item2.childList">
+                  <a routerLinkActive="active" [routerLink]="item3.path">
+                    <span class="d-md-none d-xl-inline">{{item3.name}}</span>
+                    <i [class]="item3.icon"></i>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <!-- <ng-container *ngIf="router.url.includes('/ins')">
+          <li>
+            <a routerLinkActive="active" routerLink="/ins/hospital/list-hospital">
+              <span class="d-md-none d-xl-inline">{{'Hospital'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/ins/hospital/list-hospital-branch">
+              <span class="d-md-none d-xl-inline">{{'Hospital Branch'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/ins/insurance/list-company">
+              <span class="d-md-none d-xl-inline">{{'Insurance Company'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/ins/insurance/list-company-branch">
+              <span class="d-md-none d-xl-inline">{{'Insurance Company Branch'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/ins/insurance/list-policy">
+              <span class="d-md-none d-xl-inline">{{'Insurance Policy'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/ins/hospital/add-claim">
+              <span class="d-md-none d-xl-inline">{{'Claim'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+        </ng-container> -->
+        <!-- <ng-container *ngIf="router.url.includes('/kyc')">
+          <li>
+            <a routerLinkActive="active" routerLink="/kyc/bank/list-bank">
+              <span class="d-md-none d-xl-inline">{{'Bank'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/kyc/bank/list-bank-branch">
+              <span class="d-md-none d-xl-inline">{{'Bank Branch'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/kyc/user/list-user">
+              <span class="d-md-none d-xl-inline">{{'User'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/kyc/user/list-user-account">
+              <span class="d-md-none d-xl-inline">{{'User Account'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+        </ng-container> -->
+        <!-- <ng-container *ngIf="router.url.includes('/pv')">
+          <li>
+            <a routerLinkActive="active" routerLink="/pv/citizen/add-citizen">
+              <span class="d-md-none d-xl-inline">{{'Add Citizen'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/pv/foreign-visa-agency/add-foreign-visa-agency">
+              <span class="d-md-none d-xl-inline">{{'Add Foriegn Visa Agency'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/pv/immigration-control/add-immigration-control">
+              <span class="d-md-none d-xl-inline">{{'Add Immigration Control'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+          <li>
+            <a routerLinkActive="active" routerLink="/pv/passport-agency/add-passport-agency">
+              <span class="d-md-none d-xl-inline">{{'Add Passport Agency'}}</span>
+              <i class="aicon-id-card1"></i></a>
+          </li>
+        </ng-container> -->
+      </ul>
+    </div>
+  </nav>
+</div>

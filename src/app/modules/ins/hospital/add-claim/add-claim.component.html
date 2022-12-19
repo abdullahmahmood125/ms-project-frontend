@@ -1,0 +1,113 @@
+<div class="row card page-card px-3">
+    <div class="col-md-8">
+        <form [formGroup]="form">
+            <div class="form-section">
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'amount' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="number" formControlName="amount" class="form-control"
+                                [placeholder]="'amount' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'amount' | translate"
+                            [errorObject]="formService.getErrors('amount')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'claim type' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="claimType" class="form-control"
+                                [placeholder]="'claim type' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'claim type' | translate"
+                            [errorObject]="formService.getErrors('claimType')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'Comments' | translate }}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="comments" class="form-control"
+                                [placeholder]="'Comments' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'comments' | translate"
+                            [errorObject]="formService.getErrors('comments')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'description' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="description" class="form-control"
+                                [placeholder]="'description' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'description' | translate"
+                            [errorObject]="formService.getErrors('description')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'start time' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="startTime" class="form-control"
+                                [placeholder]="'start time' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'start time' | translate"
+                            [errorObject]="formService.getErrors('startTime')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'end time' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="endTime" class="form-control"
+                                [placeholder]="'end time' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'end time' | translate"
+                            [errorObject]="formService.getErrors('endTime')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'hospital' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="hospital" class="form-control"
+                                [placeholder]="'hospital' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'hospital' | translate"
+                            [errorObject]="formService.getErrors('hospital')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'hospital branch' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="hospitalBranch" class="form-control"
+                                [placeholder]="'hospital branch' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'hospital branch' | translate"
+                            [errorObject]="formService.getErrors('hospitalBranch')"></app-form-errors>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <div class="form-group btns-group col-sm-8 text-right btns-salebook mrgn-left">
+        <button type="button" class="btn-round btn btn-secondary">
+            {{'cancel' | translate}}
+        </button>
+        <button type="button" class="btn-round btn btn-green" (click)="submit()">
+            {{'save' | translate}}
+         </button>
+    </div>
+</div>

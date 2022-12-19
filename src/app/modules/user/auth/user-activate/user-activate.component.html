@@ -1,0 +1,32 @@
+<div class="row page-login screen-height">
+  <div class="col-md-6 logo-grid">
+    <h1><a class="angus-logo" routerLink="/">
+      <img class="screen-lg" src="assets/images/app-logo.png">
+      <!-- <img class="screen-md" src="assets/images/app-logo.png"> -->
+    </a></h1>
+  </div>
+  <div class="col-sm-6 login-grid">
+
+    <div class="card form-card">
+      <div class="card-body">
+        <h6 class="card-title">{{ 'ms_project' | translate }}</h6>
+        <h4 class="card-title" *ngIf="state.verified">{{ 'user_activation_title' | translate }}</h4>
+        <ng-container *ngIf="state.expired">
+          <br>
+          <b class="txt-red">{{ 'invalid_token' | translate }} <br></b>
+          <br>
+        </ng-container>
+
+        <div class="form-group">
+          <button *ngIf="state.verified" type="button" routerLink="/user/login" class="btn-round btn btn-primary">
+            {{'login' | translate}}
+          </button>
+          <button *ngIf="state.expired" type="button" (click)="regenerateActivationToken()"
+                  class="btn-round btn btn-primary">{{ 'regenerate' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

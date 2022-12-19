@@ -1,0 +1,93 @@
+<div class="row card page-card px-3">
+    <div class="col-md-8">
+        <form [formGroup]="form">
+            <div class="form-section">
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'name' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="name" class="form-control"
+                                [placeholder]="'name' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'name' | translate"
+                            [errorObject]="formService.getErrors('name')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'hospitals' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <ng-select class="w-100" style="flex:1 1 auto" [items]="hospitals" bindLabel="name"
+                                bindValue="id" formControlName="insHospitalId" [ngModel]="form.get('insHospitalId').value"
+                                [placeholder]="'hospitals' | translate" (change)="getCityByCountryId()">
+                            </ng-select>
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'hospitals' | translate"
+                            [errorObject]="formService.getErrors('insHospitalId')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'code' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="branchCode" class="form-control"
+                                [placeholder]="'code' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'code' | translate"
+                            [errorObject]="formService.getErrors('branchCode')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'city' | translate }}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <ng-select class="w-100" style="flex:1 1 auto" [items]="commonService.countryCities" bindLabel="label"
+                                bindValue="value" formControlName="cityId" [ngModel]="form.get('cityId').value"
+                                [placeholder]="'city' | translate" [readonly]="!form.get('insHospitalId').value">
+                            </ng-select>
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'city' | translate"
+                            [errorObject]="formService.getErrors('cityId')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'email' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="email" class="form-control"
+                                [placeholder]="'email' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'email' | translate"
+                            [errorObject]="formService.getErrors('email')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'contact' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="contactNumber" class="form-control"
+                                [placeholder]="'contact' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'contact' | translate"
+                            [errorObject]="formService.getErrors('contactNumber')"></app-form-errors>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <div class="form-group btns-group col-sm-8 text-right btns-salebook mrgn-left">
+        <button type="button" class="btn-round btn btn-secondary" [routerLink]="routerLink">
+            {{'cancel' | translate}}
+        </button>
+        <button type="button" class="btn-round btn btn-green" (click)="submit()">
+            {{'save' | translate}}
+         </button>
+    </div>
+</div>

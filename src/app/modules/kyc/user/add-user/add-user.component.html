@@ -1,0 +1,73 @@
+<div class="row card page-card px-3">
+    <div class="col-md-8">
+        <form [formGroup]="form">
+            <div class="form-group">
+              <label>{{ 'first_name' | translate }} *</label>
+              <div class="input-group">
+                <input type="text" formControlName="firstName" class="form-control"
+                  [placeholder]="'first_name' | translate ">
+              </div>
+              <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'first_name'"
+                [errorObject]="formService.getErrors('firstName')"></app-form-errors>
+            </div>
+            <div class="form-group">
+              <label>{{ 'last_name' | translate }} *</label>
+              <div class="input-group">
+                <input type="text" formControlName="lastName" class="form-control"
+                  [placeholder]="'last_name' | translate ">
+              </div>
+              <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'last_name'"
+                [errorObject]="formService.getErrors('lastName')"></app-form-errors>
+            </div>
+            <div class="form-group">
+              <label>{{ 'father_name' | translate }} *</label>
+              <div class="input-group">
+                <input type="text" formControlName="fatherName" class="form-control"
+                  [placeholder]="'father_name' | translate ">
+              </div>
+              <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'father_name'"
+                [errorObject]="formService.getErrors('fatherName')"></app-form-errors>
+            </div>
+  
+            <div class="form-group">
+              <label>{{ 'cnic' | translate }} *</label>
+              <div class="input-group">
+                <input type="text" class="form-control" [placeholder]="'cnic' | translate"
+                  formControlName="identityNo">
+              </div>
+              <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'cnic'"
+                [errorObject]="formService.getErrors('identityNo')"></app-form-errors>
+            </div>
+  
+            <div class="form-group">
+              <label>{{ 'username' | translate }} *</label>
+              <div class="input-group">
+                <input type="text" class="form-control" [placeholder]="'username' | translate"
+                  formControlName="userName">
+              </div>
+              <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'username'"
+                [errorObject]="formService.getErrors('userName')"></app-form-errors>
+            </div>
+  
+            <div class="form-group">
+                <label>{{ 'User Type' | translate}}*</label>
+                <div class="input-group">
+                    <ng-select class="w-100" style="flex:1 1 auto" [items]="commonService.userTypes" bindLabel="label"
+                        bindValue="id" formControlName="userType" [ngModel]="form.get('userType').value"
+                        [placeholder]="'user type' | translate">
+                    </ng-select>
+                </div>
+                <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'User Type' | translate"
+                    [errorObject]="formService.getErrors('userType')"></app-form-errors>
+            </div>
+          </form>
+    </div>
+    <div class="form-group btns-group col-sm-8 text-right btns-salebook mrgn-left">
+        <button type="button" class="btn-round btn btn-secondary" [routerLink]="routerLink">
+            {{'cancel' | translate}}
+        </button>
+        <button type="button" class="btn-round btn btn-green" (click)="submit()">
+            {{'save' | translate}}
+         </button>
+    </div>
+</div>

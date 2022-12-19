@@ -1,0 +1,35 @@
+export interface Media {
+  id: number;
+  mediaUploadValidatorId: number;
+  fileName: string;
+  relativePath: string;
+  relativePathCR: string;
+  relativePathCRInternal: string;
+  originalName: string;
+  isImage: boolean;
+  metadata: any;
+  tags: any;
+  versions: any;
+  version: number;
+  placeHolderImage: boolean;
+  isPublic: boolean;
+  canEdit: boolean;
+  downloadable: boolean;
+  uploader: string;
+  extension: string;
+  size: string;
+  createdBy: string;
+  resolution: string;
+  dimensions: string;
+  createdOn: string;
+  bitDepth: string;
+  colorMode: string;
+  cutline: string;
+  tagLots: string;
+  tagRegNumber: string;
+  tagName: string;
+  usedInBook: boolean;
+  usedInBookForLot: boolean;
+  bookList: any[];
+  lotMediaId: string;
+}

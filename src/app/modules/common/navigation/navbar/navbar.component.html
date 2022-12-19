@@ -1,0 +1,29 @@
+<header>
+  <div class="row app-header">
+    <div class="title-bar col-md-6">
+      <h1>
+        {{pageTitle}}
+      </h1>
+    </div>
+    <div class="d-flex align-items-center justify-content-end quick-launch-btns col-md-6">
+      <div ngbDropdown class="user-profile">
+        <p class="btn" id="profiledropdown" ngbDropdownToggle>
+          <ng-container *ngIf="user">
+            <span>{{user.name}}
+              <small *ngIf="user.roles">{{user.roles[0]}}</small>
+            </span>
+            <figure>
+              <img [src]="profilePicture ? profilePicture : helperService.NO_PROFILE_IMAGE">
+            </figure>
+          </ng-container>
+        </p>
+        <ul class="profile-dd" ngbDropdownMenu aria-labelledby="profiledropdown">
+          <li class="dropdown-item" routerLink="/user/profile"><strong>{{'my_profile' | translate}}</strong><i
+            class="aicon-user1"></i></li>
+          <li class="dropdown-item" (click)="logout()"><a
+            href="javascript:void(0);"><strong>{{'logout' | translate}}</strong><i class="aicon-sign-out1"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
