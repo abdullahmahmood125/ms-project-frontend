@@ -15,7 +15,7 @@ export class DashboardComponent extends AppBase implements OnInit {
 
   ngOnInit() {
     this.setPageTitle('Dashboard');
-    this.router.navigate(['kyc']);
+    this.router.navigate(['sc']);
   }
 
   logout() {

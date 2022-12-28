@@ -1,15 +1,25 @@
-<div class="row page-login page-signup screen-height">
+<div class="row page-login page-signup screen-lg">
   <div class="col-md-6 logo-grid">
-    <h1><a class="angus-logo" routerLink="/">
+    <!-- <h1><a class="angus-logo" routerLink="/">
         <img class="screen-lg" src="assets/images/app-logo.png">
-      </a></h1>
-    <div class="signup-ad">
-    </div>
+      </a></h1> -->
+    <!-- <div class="signup-ad">
+    </div> -->
   </div>
   <div class="col-sm-6 login-grid">
     <div class="card form-card">
       <div class="card-body">
-        <h6 class="card-title">{{ 'ms_project' | translate }}</h6>
+        <!-- <h6 class="card-title">{{ 'ms_project' | translate }}</h6> -->
+        <div class="text-center">
+          <div class="px-5 ms-xl-4">
+            <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
+            <span class="h1 fw-bold mb-0">
+              <a class="angus-logo" routerLink="/">
+                <img class="screen-lg" src="assets/images/app-logo.png">
+              </a>
+            </span>
+          </div>
+        </div>
         <h4 class="card-title">{{ 'user_registration' | translate }}</h4>
         <form [formGroup]="form" (submit)="submit()">
           <span class="form-caption">{{ 'field_with_starick_mandatory' | translate }}</span>

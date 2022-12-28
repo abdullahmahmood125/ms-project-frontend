@@ -1,7 +1,7 @@
-import {Injectable, Injector} from '@angular/core';
-import {BaseService} from "../base/base.service";
+import { Injectable, Injector } from '@angular/core';
+import { BaseService } from "../base/base.service";
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class UserService extends BaseService {
 
   constructor(injector: Injector) {
@@ -9,11 +9,11 @@ export class UserService extends BaseService {
   }
 
   login(form: any) {
-    return this.post('profile/auth/login', form);
+    return this.post('auth/authenticate', form);
   }
 
   register(form: any) {
-    return this.post('profile/auth/register', form);
+    return this.post('auth/register', form);
   }
 
   profile(id: number) {

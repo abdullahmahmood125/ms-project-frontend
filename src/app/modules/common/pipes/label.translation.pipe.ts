@@ -39,6 +39,7 @@ export class LabelTranslationPipe implements PipeTransform {
     'internal_server_error_message': 'An error occurred',
     'method_not_allowed_message': 'Server has rejected this method for the requested resource',
     'back_to_home': 'Back to Homepage',
+    'sign_up': 'Register here',
   };
 
   transform(key: any, placeholder: string = null, value: any = null, defaultCase = null) {

@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormGroup} from "@angular/forms";
-import {AppBase} from "../../../base/app.base";
-import {response} from "../../../../interfaces/response/response";
-import {UserEditForm} from "../../../../forms/user-edit.form";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup } from "@angular/forms";
+import { AppBase } from "../../../base/app.base";
+import { response } from "../../../../interfaces/response/response";
+import { UserEditForm } from "../../../../forms/user-edit.form";
 
 @Component({
   selector: 'app-user-edit',
@@ -14,7 +14,7 @@ export class UserEditComponent extends AppBase implements OnInit {
   form: FormGroup;
   formService: UserEditForm;
 
-  constructor(public userEditForm: UserEditForm, ) {
+  constructor(public userEditForm: UserEditForm,) {
     super();
     this.formService = this.userEditForm;
     this.form = this.formService.getForm();

@@ -42,6 +42,10 @@ const routes: Routes = [
         path: 'pv',
         component: BaseComponent,
         loadChildren: () => import('./pv/pv.module').then(m => m.PvModule)
+      },{
+        path: 'sc',
+        component: BaseComponent,
+        loadChildren: () => import('./sc/sc.module').then(m => m.SCModule)
       }, {
         path: '**',
         redirectTo: 'error/404'
