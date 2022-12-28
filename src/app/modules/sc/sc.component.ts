@@ -1,3 +1,4 @@
+import { getAllLifecycleHooks } from '@angular/compiler/src/lifecycle_reflector';
 import { Component, OnInit } from '@angular/core';
 import { AppBase } from '../base/app.base';
 
@@ -14,14 +15,16 @@ export class SCComponent extends AppBase implements OnInit {
 
   ngOnInit(): void {
     this.setPageTitle('Smart Crowd');
-    this.commonService.getAddressTypes();
-    this.commonService.getContactTypes();
-    this.commonService.getCountries();
-    this.commonService.getCities();
-    this.commonService.getUserArtifacts();
-    this.commonService.getBankAccountTypes();
-    this.commonService.getHospitalInsuranceClaimTypes();
+    // this.commonService.getAddressTypes();
+    // this.commonService.getContactTypes();
+    // this.commonService.getCountries();
+    // this.commonService.getCities();
+    // this.commonService.getUserArtifacts();
+    // this.commonService.getBankAccountTypes();
+    // this.commonService.getHospitalInsuranceClaimTypes();
     this.commonService.getUserTypes();
+
+    this.router.navigateByUrl('./sc/task/add-task')
   }
 
 }

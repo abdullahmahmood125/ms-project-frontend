@@ -1,5 +1,5 @@
-import {Injectable, Injector} from '@angular/core';
-import {BaseService} from "../../base/base.service";
+import { Injectable, Injector } from '@angular/core';
+import { BaseService } from "../../base/base.service";
 
 @Injectable({
   providedIn: 'root'
@@ -75,7 +75,7 @@ export class CommonService extends BaseService {
   }
 
   findCountryById(id: number) {
-    let nameOfCountry =  this.countries?.find(c => c.value == id);
+    let nameOfCountry = this.countries?.find(c => c.value == id);
     return nameOfCountry;
   }
 
@@ -96,5 +96,8 @@ export class CommonService extends BaseService {
     return this.userTypes;
   }
 
+  findAllUserTypeByUserID(id: number) {
+    return this.userTypes?.find(c => c.id == id);
+  }
 
 }
