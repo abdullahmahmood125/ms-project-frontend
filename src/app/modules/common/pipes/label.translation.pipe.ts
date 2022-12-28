@@ -40,6 +40,7 @@ export class LabelTranslationPipe implements PipeTransform {
     'method_not_allowed_message': 'Server has rejected this method for the requested resource',
     'back_to_home': 'Back to Homepage',
     'sign_up': 'Register here',
+    'user_type': 'User Type',
   };
 
   transform(key: any, placeholder: string = null, value: any = null, defaultCase = null) {

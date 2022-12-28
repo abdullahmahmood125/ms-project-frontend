@@ -20,6 +20,7 @@ export class UserEditForm extends BaseForm {
       identityNo: [null, Validators.compose([Validators.required, Validators.maxLength(FIELD_LENGTH.MAX_CHARACTER_500)])],
       userName: [null, Validators.compose([Validators.required, Validators.maxLength(FIELD_LENGTH.MAX_CHARACTER_500)])],
       email: [null, Validators.compose([Validators.required, Validators.maxLength(FIELD_LENGTH.MAX_CHARACTER_200), FormValidator.email()])],
+      userTypeLabel: [null, Validators.compose([Validators.required, Validators.maxLength(FIELD_LENGTH.MAX_CHARACTER_500)])],
     });
     return this.form;
   }

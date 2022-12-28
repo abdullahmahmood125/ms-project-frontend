@@ -17,6 +17,8 @@ export class UserForm extends BaseForm {
       Validators.maxLength(FIELD_LENGTH.MAX_CHARACTER_200)])],
     confirmPassword: [null, Validators.compose([Validators.required, FormValidator.passwordPolicy,
       Validators.maxLength(FIELD_LENGTH.MAX_CHARACTER_200)])],
+      userTypeLabel: [null, Validators.compose([Validators.required, Validators.maxLength(FIELD_LENGTH.MAX_CHARACTER_500)])],
+
   };
   baseValidators = {
     validator: FormValidator.matchPassword

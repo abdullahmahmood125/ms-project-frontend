@@ -91,4 +91,10 @@ export class CommonService extends BaseService {
     return this.accountTypes?.find(c => c.id == id);
   }
 
+
+  findAllUserTypes() {
+    return this.userTypes;
+  }
+
+
 }

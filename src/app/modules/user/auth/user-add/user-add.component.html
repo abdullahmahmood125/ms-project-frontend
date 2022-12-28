@@ -54,8 +54,7 @@
           <div class="form-group">
             <label>{{ 'cnic' | translate }} *</label>
             <div class="input-group">
-              <input type="text" class="form-control" [placeholder]="'cnic' | translate"
-                formControlName="identityNo">
+              <input type="text" class="form-control" [placeholder]="'cnic' | translate" formControlName="identityNo">
             </div>
             <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'cnic'"
               [errorObject]="formService.getErrors('identityNo')"></app-form-errors>
@@ -64,8 +63,7 @@
           <div class="form-group">
             <label>{{ 'username' | translate }} *</label>
             <div class="input-group">
-              <input type="text" class="form-control" [placeholder]="'username' | translate"
-                formControlName="userName">
+              <input type="text" class="form-control" [placeholder]="'username' | translate" formControlName="userName">
             </div>
             <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'username'"
               [errorObject]="formService.getErrors('userName')"></app-form-errors>
@@ -108,6 +106,23 @@
             <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'password'"
               [errorObject]="formService.getErrors('confirmPassword')"></app-form-errors>
           </div>
+
+          <div class="form-group">
+            <label class="col-sm-4">{{ 'User Type' | translate }}*</label>
+            <div class="col-sm-8">
+              <div class="input-group">
+                <select name="User Types" class="form-control" style="flex:1 1 auto"
+                formControlName="userTypeLabel"    placeholder='User Type' ng-model="userTypeLabel">
+                  <option value="">--Select--</option>
+                  <option value="Requester">Requester</option>
+                  <option value="Worker">Worker</option>
+                </select>
+              </div>
+              <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'User Type' | translate"
+                [errorObject]="formService.getErrors('userTypeLabel')"></app-form-errors>
+            </div>
+          </div>
+
           <div class="form-group login-buttons">
             <button type="submit" class="btn-round btn btn-primary">{{ 'register' | translate }}</button>
           </div>
