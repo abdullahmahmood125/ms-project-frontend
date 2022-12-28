@@ -1,4 +1,4 @@
-import {Media} from "./media";
+import { Media } from "./media";
 
 export interface UserDetails {
   id: number;
@@ -25,6 +25,7 @@ export interface UserDetails {
   mediaId: number;
   isVerified: boolean;
   userType: number;
+  userTypeLabel: string;
 }
 
 export interface Role {
