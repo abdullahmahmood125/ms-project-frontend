@@ -14,11 +14,24 @@ export class TaskForm extends BaseForm {
   getForm() {
     this.markAsSubmitted(false);
     return this.form = this.fb.group({
-      name: [null, Validators.compose([Validators.required,])],
-      countryId: [null, Validators.compose([Validators.required])],
-      shortCode: [null, Validators.compose([Validators.required])],
-      email: [null, Validators.compose([Validators.required, FormValidator.email()])],
-      contactNumber: [null, Validators.compose([Validators.required, FormValidator.phone()])],
+      task_title: [null, Validators.compose([Validators.required,])],
+      main_skill_id: [null, Validators.compose([Validators.required])],
+      complexity_id: [null, Validators.compose([Validators.required])],
+      description: [null, Validators.compose([Validators.required])],
+      payment_amount: [null, Validators.compose([Validators.required])],
+      end_time: [null, Validators.compose([Validators.required])],
+
+      // email: [null, Validators.compose([Validators.required, FormValidator.email()])],
+      // contactNumber: [null, Validators.compose([Validators.required, FormValidator.phone()])],
+
+      // complexity_text: [null, Validators.compose([Validators.required])],
+      // complexity_id: [null, Validators.compose([Validators.required])],
+      // status: [null, Validators.compose([Validators.required])],
+      // description: [null, Validators.compose([Validators.required])],
+      // main_skill_id: [null, Validators.compose([Validators.required])],
+      // payment_amount: [null, Validators.compose([Validators.required])],
+
+
 
 
     });

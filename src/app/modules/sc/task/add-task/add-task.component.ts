@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { BankForm } from "../../../../forms/kyc/bank-form";
+import { TaskForm } from "../../../../forms/sc/task-form";
 import { FormGroup } from "@angular/forms";
 import { ActivatedRoute } from '@angular/router';
 import { SCBase } from '../../sc.base';
+import { UserDetails } from "../../../../interfaces/user";
+
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -12,10 +14,11 @@ export class AddTaskComponent extends SCBase implements OnInit {
 
   routerLink: string = '/sc/task/list-task/'
   form: FormGroup;
-  formService: BankForm;
+  formService: TaskForm;
   id: number = null;
+  user: UserDetails = null;
 
-  constructor(formService: BankForm, private activatedRoute: ActivatedRoute) {
+  constructor(formService: TaskForm, private activatedRoute: ActivatedRoute) {
     super();
     this.formService = formService;
     this.form = this.formService.getForm();
@@ -32,7 +35,7 @@ export class AddTaskComponent extends SCBase implements OnInit {
   }
 
   getById(id: number) {
-    this.scService.findKycBankById(id).subscribe((response: any) => {
+    this.scService.findTaskByTaskId(id).subscribe((response: any) => {
       this.form.patchValue(response);
     }, err => {
       this.mapResponse(false);
@@ -46,7 +49,12 @@ export class AddTaskComponent extends SCBase implements OnInit {
       if (this.id) {
         params.id = this.id;
       }
-      this.scService.saveKycBank(params).subscribe((response: any) => {
+      params["status"] = 'new'
+      let user_json = localStorage.getItem(this.helperService.LOCAL_STORAGE_KEYS.AUTH);
+      this.user = user_json != null ? JSON.parse(user_json).user : null;
+      params["requester_id"] = this.user.id;
+      console.log(params);
+      this.scService.saveScTask(params).subscribe((response: any) => {
         this.router.navigate([this.routerLink]);
         this.mapResponse();
       }, err => {
