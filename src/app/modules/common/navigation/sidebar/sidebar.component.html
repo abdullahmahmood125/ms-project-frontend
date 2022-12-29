@@ -27,7 +27,12 @@
           <li *ngIf="user.userTypeLabel == 'Worker'">
             <a routerLinkActive="active" routerLink="/sc/task/list-new-task">
               <span class="d-md-none d-xl-inline">{{'Show New Tasks'}}</span>
+            </a>
+          </li>
 
+          <li>
+            <a routerLinkActive="active" routerLink="/sc/task/list-task">
+              <span class="d-md-none d-xl-inline">{{'My Tasks'}}</span>
             </a>
           </li>
 
