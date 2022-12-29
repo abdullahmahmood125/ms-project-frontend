@@ -23,15 +23,15 @@ export class AddBankComponent extends KycBase implements OnInit {
 
   ngOnInit(): void {
     this.id = parseInt(this.activatedRoute.snapshot.params['id']);
-    if (this.id){
+    if (this.id) {
       this.setPageTitle('Update Bank');
       this.getById(this.id);
-    } else{
+    } else {
       this.setPageTitle('Add Bank');
     }
   }
 
-  getById(id:number) {
+  getById(id: number) {
     this.kycService.findKycBankById(id).subscribe((response: any) => {
       this.form.patchValue(response);
     }, err => {
@@ -42,7 +42,7 @@ export class AddBankComponent extends KycBase implements OnInit {
   submit() {
     this.formService.markAsSubmitted();
     if (this.form.valid) {
-      let params = {...this.form.value};
+      let params = { ...this.form.value };
       if (this.id) {
         params.id = this.id;
       }

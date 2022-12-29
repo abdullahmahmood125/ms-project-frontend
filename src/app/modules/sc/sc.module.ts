@@ -9,6 +9,7 @@ import { AddTaskComponent } from './task/add-task/add-task.component';
 import { SCService } from './sc.service';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ListTaskComponent } from './task/list-task/list-task.component';
+import { ListNewTaskComponent } from './task/list-new-task/list-new-task.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ListTaskComponent } from './task/list-task/list-task.component';
     AddTaskComponent,
     AddTaskComponent,
     ListTaskComponent,
+    ListNewTaskComponent,
   ],
   imports: [
     CommonModule,

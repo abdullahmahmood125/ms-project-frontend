@@ -1,8 +1,8 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({name: 'translate'})
+@Pipe({ name: 'translate' })
 export class LabelTranslationPipe implements PipeTransform {
-  labels = { 
+  labels = {
     'ms_project': 'MS Project',
     'email_address': 'Email Address',
     'forgot_password': 'Forgot Password',
@@ -41,6 +41,13 @@ export class LabelTranslationPipe implements PipeTransform {
     'back_to_home': 'Back to Homepage',
     'sign_up': 'Register here',
     'user_type': 'User Type',
+    'task_title': 'Task Title',
+    'description': 'Description',
+    'skill_level': 'Required Skill Level',
+    'task_complexity_level': 'Task Complexity Level',
+    'task_end_time': 'Expected Timeline',
+    'task_amount': 'Task Amount',
+
   };
 
   transform(key: any, placeholder: string = null, value: any = null, defaultCase = null) {

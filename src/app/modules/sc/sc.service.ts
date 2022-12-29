@@ -8,6 +8,24 @@ export class SCService extends BaseService {
     super(injector);
   }
 
+  saveScTask(form: any) {
+    return this.post('task/postTask', form);
+  }
+
+
+  findAllTasks() {
+    return this.get('task/taskList');
+  }
+
+  findAllNewTasks() {
+    return this.get('task/newTaskList');
+  }
+
+  findTaskByTaskId(id: number) {
+    return this.get('task/info/' + id);
+  }
+
+  //others
   saveKycBank(form: any) {
     return this.post('kyc/api/saveKycBank', form);
   }
@@ -84,5 +102,6 @@ export class SCService extends BaseService {
   getBankBranchesByBankId(id: number) {
     return this.get('kyc/api/getBankBranchesByBankId/' + id);
   }
+
 
 }

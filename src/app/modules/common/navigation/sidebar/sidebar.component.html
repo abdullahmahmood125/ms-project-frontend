@@ -16,7 +16,7 @@
         <ng-container *ngIf="router.url.includes('/sc')">
           <li>
             <a routerLinkActive="active" routerLink="/sc/task/list-task">
-              <span class="d-md-none d-xl-inline">{{'My Task'}}</span>
+              <span class="d-md-none d-xl-inline">{{'My Tasks'}}</span>
             </a>
           </li>
           <li *ngIf="user.userTypeLabel == 'Requester'">
@@ -25,8 +25,8 @@
             </a>
           </li>
           <li *ngIf="user.userTypeLabel == 'Worker'">
-            <a routerLinkActive="active" routerLink="/sc/task/list-task">
-              <span class="d-md-none d-xl-inline">{{'New Tasks'}}</span>
+            <a routerLinkActive="active" routerLink="/sc/task/list-new-task">
+              <span class="d-md-none d-xl-inline">{{'Show New Tasks'}}</span>
 
             </a>
           </li>

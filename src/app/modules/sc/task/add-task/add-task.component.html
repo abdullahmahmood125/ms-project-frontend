@@ -4,44 +4,86 @@
             <div class="form-section">
 
                 <div class="form-group">
-                    <label class="col-sm-4">{{ 'name' | translate}}*</label>
+                    <label class="col-sm-4">{{ 'task_title' | translate}}*</label>
                     <div class="col-sm-8">
                         <div class="input-group">
-                            <input type="text" formControlName="name" class="form-control"
-                                [placeholder]="'name' | translate">
+                            <input type="text" formControlName="task_title" class="form-control"
+                                [placeholder]="'task_title' | translate">
                         </div>
-                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'name' | translate"
-                            [errorObject]="formService.getErrors('name')"></app-form-errors>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'task_title' | translate"
+                            [errorObject]="formService.getErrors('task_title')"></app-form-errors>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-4">{{ 'country' | translate}}*</label>
+                    <label class="col-sm-4">{{ 'task_complexity_level' | translate}}*</label>
                     <div class="col-sm-8">
                         <div class="input-group">
-                            <ng-select class="w-100" style="flex:1 1 auto" [items]="commonService.countries" bindLabel="label"
-                                bindValue="value" formControlName="countryId" [ngModel]="form.get('countryId').value"
-                                [placeholder]="'country' | translate">
+                            <ng-select class="w-100" style="flex:1 1 auto" [items]="commonService.taskComplexities"
+                                bindLabel="label" bindValue="id" formControlName="complexity_id"
+                                [ngModel]="form.get('complexity_id').value"
+                                [placeholder]="'task_complexity_level' | translate"
+                                (change)="commonService.taskComplexities">
                             </ng-select>
                         </div>
-                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'country' | translate"
-                            [errorObject]="formService.getErrors('countryId')"></app-form-errors>
+                        <app-form-errors *ngIf="formService.isSubmitted()"
+                            [fieldName]="'task_complexity_level' | translate"
+                            [errorObject]="formService.getErrors('complexity_id')"></app-form-errors>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-4">{{ 'code' | translate }}*</label>
+                    <label class="col-sm-4">{{ 'skill_level' | translate}}*</label>
                     <div class="col-sm-8">
                         <div class="input-group">
-                            <input type="text" formControlName="shortCode" class="form-control"
-                                [placeholder]="'code' | translate">
+                            <ng-select class="w-100" style="flex:1 1 auto" [items]="commonService.skills"
+                                bindLabel="label" bindValue="id" formControlName="main_skill_id"
+                                [ngModel]="form.get('main_skill_id').value" [placeholder]="'skill_level' | translate">
+                            </ng-select>
                         </div>
-                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'code' | translate"
-                            [errorObject]="formService.getErrors('shortCode')"></app-form-errors>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'skill_level' | translate"
+                            [errorObject]="formService.getErrors('main_skill_id')"></app-form-errors>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'description' | translate }}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="description" class="form-control"
+                                [placeholder]="'description' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'description' | translate"
+                            [errorObject]="formService.getErrors('description')"></app-form-errors>
                     </div>
                 </div>
 
                 <div class="form-group">
+                    <label class="col-sm-4">{{ 'task_amount' | translate }}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="number" formControlName="payment_amount" class="form-control"
+                                [placeholder]="'task_amount' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'task_amount' | translate"
+                            [errorObject]="formService.getErrors('payment_amount')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'task_end_time' | translate }}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="datetime-local" formControlName="end_time" class="form-control"
+                                [placeholder]="'task_end_time' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'task_end_time' | translate"
+                            [errorObject]="formService.getErrors('end_time')"></app-form-errors>
+                    </div>
+                </div>
+
+                <!-- <div class="form-group">
                     <label class="col-sm-4">{{ 'email' | translate}}*</label>
                     <div class="col-sm-8">
                         <div class="input-group">
@@ -51,9 +93,9 @@
                         <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'email' | translate"
                             [errorObject]="formService.getErrors('email')"></app-form-errors>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="col-sm-4">{{ 'contact' | translate}}*</label>
                     <div class="col-sm-8">
                         <div class="input-group">
@@ -63,7 +105,7 @@
                         <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'contact' | translate"
                             [errorObject]="formService.getErrors('contactNumber')"></app-form-errors>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </form>
@@ -74,6 +116,6 @@
         </button>
         <button type="button" class="btn-round btn btn-green" (click)="submit()">
             {{'save' | translate}}
-         </button>
+        </button>
     </div>
 </div>

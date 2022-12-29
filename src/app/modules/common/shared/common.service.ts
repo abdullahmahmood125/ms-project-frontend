@@ -15,6 +15,9 @@ export class CommonService extends BaseService {
   public claimTypes: any[] = [];
   public userTypes: any[] = [];
   public userArtifacts: any[] = [];
+  public skills: any[] = [];
+  public taskComplexities: any[] = [];
+
 
   constructor(injector: Injector) {
     super(injector);
@@ -43,6 +46,18 @@ export class CommonService extends BaseService {
       this.userTypes = resp;
     });
   }
+  getTaskComplexities() {
+    this.get('task/taskComplexities').subscribe((resp: any) => {
+      this.taskComplexities = resp;
+    });
+  }
+
+  getAllSkills() {
+    this.get('cmn/getSkills').subscribe((resp: any) => {
+      this.skills = resp;
+    });
+  }
+
 
   getUserArtifacts() {
     this.get('profile/getUserArtifacts').subscribe((resp: any) => {
