@@ -22,10 +22,10 @@
     "@angular/router": "~12.2.0",
     "@ng-bootstrap/ng-bootstrap": "^12.1.1",
     "@ng-select/ng-select": "^7.4.0",
-    "@ngx-loading-bar/core": "^4.1.1",
-    "@ngx-loading-bar/http-client": "^4.1.1",
     "@ngrx/effects": "^13.2.0",
     "@ngrx/store": "^13.2.0",
+    "@ngx-loading-bar/core": "^4.1.1",
+    "@ngx-loading-bar/http-client": "^4.1.1",
     "@popperjs/core": "^2.11.5",
     "@rxweb/reactive-form-validators": "^2.1.7",
     "angular-super-validator": "^2.0.0",
@@ -34,6 +34,7 @@
     "ngx-toastr": "^14.3.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
+    "web3": "^1.8.1",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

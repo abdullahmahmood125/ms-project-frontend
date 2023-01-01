@@ -1,11 +1,15 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
-import {AuthenticateAction} from "../../../../store/user/actions";
-import {selectUserAuth} from "../../../../store/user/selectors";
-import {UserAuthState} from "../../../../store/user/auth/state";
-import {AppBase} from "../../../base/app.base";
-import {LoginForm} from "../../../../forms/login-form";
-import {UserModel} from '../../../../models/user.model';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { AuthenticateAction } from "../../../../store/user/actions";
+import { selectUserAuth } from "../../../../store/user/selectors";
+import { UserAuthState } from "../../../../store/user/auth/state";
+import { AppBase } from "../../../base/app.base";
+import { LoginForm } from "../../../../forms/login-form";
+import { UserModel } from '../../../../models/user.model';
+
+import { connectWalletHandler, Web3Service } from '../../../../services/web3.service';
+import Web3 from 'web3';
+
 
 @Component({
   selector: 'app-login',
@@ -17,6 +21,8 @@ export class LoginComponent extends AppBase implements OnInit, OnDestroy {
   user: UserModel;
   state: UserAuthState;
   formService: LoginForm;
+  web3Provider: Web3Service;
+  web3: Web3;
 
   constructor(private loginForm: LoginForm) {
     super();
@@ -44,4 +50,19 @@ export class LoginComponent extends AppBase implements OnInit, OnDestroy {
       this.store.dispatch(new AuthenticateAction(this.form.value));
     }
   }
+
+
+
+
+  connect(): void {
+
+
+    connectWalletHandler();
+
+
+
+  }
+
 }
+
+
