@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Truffle and smartcontract
+open ganache on 127.0.0.1:8545
+
+open cmd as administrator
+run commands =>
+npm install (installs the dependencies)
+npx truffle console (starts the truffle console)
+truffle compile (compiles the smart contarct)
+truffle migrate (migrates the smart contarct to blockchain)
+ctrl + c (terminates the truffle console)
+npm start (starts the app)
