@@ -58,6 +58,12 @@ export class CommonService extends BaseService {
     });
   }
 
+  getAllProposalStatusCAtalog() {
+    this.get('proposal/proposalStatusCatalogList').subscribe((resp: any) => {
+      this.skills = resp;
+    });
+  }
+
 
   getUserArtifacts() {
     this.get('profile/getUserArtifacts').subscribe((resp: any) => {

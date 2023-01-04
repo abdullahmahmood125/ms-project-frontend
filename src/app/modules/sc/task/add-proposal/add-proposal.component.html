@@ -1,0 +1,97 @@
+<div class="row card page-card px-3">
+    <div class="col-md-8">
+        <form [formGroup]="form">
+            <div class="form-section">
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'task_id' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="task_id" class="form-control"
+                                [placeholder]="'task_id' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'task_id' | translate"
+                            [errorObject]="formService.getErrors('task_id')"></app-form-errors>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'Proposal Status' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <ng-select class="w-100" style="flex:1 1 auto"
+                                [items]="commonService.getAllProposalStatusCAtalog" bindLabel="status_name"
+                                bindValue="id" formControlName="current_proposal_status"
+                                [ngModel]="form.get('current_proposal_status').value"
+                                [placeholder]="'current_proposal_status' | translate">
+                            </ng-select>
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()"
+                            [fieldName]="'current_proposal_status' | translate"
+                            [errorObject]="formService.getErrors('current_proposal_status')"></app-form-errors>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'description' | translate }}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="worker_comment" class="form-control"
+                                [placeholder]="'worker_comment' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'worker_comment' | translate"
+                            [errorObject]="formService.getErrors('worker_comment')"></app-form-errors>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-sm-4">{{ 'proposal_time' | translate }}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="datetime-local" formControlName="proposal_time" class="form-control"
+                                [placeholder]="'proposal_time' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'proposal_time' | translate"
+                            [errorObject]="formService.getErrors('proposal_time')"></app-form-errors>
+                    </div>
+                </div>
+
+                <!-- <div class="form-group">
+                    <label class="col-sm-4">{{ 'email' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="email" class="form-control"
+                                [placeholder]="'email' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'email' | translate"
+                            [errorObject]="formService.getErrors('email')"></app-form-errors>
+                    </div>
+                </div> -->
+
+                <!-- <div class="form-group">
+                    <label class="col-sm-4">{{ 'contact' | translate}}*</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input type="text" formControlName="contactNumber" class="form-control"
+                                [placeholder]="'contact' | translate">
+                        </div>
+                        <app-form-errors *ngIf="formService.isSubmitted()" [fieldName]="'contact' | translate"
+                            [errorObject]="formService.getErrors('contactNumber')"></app-form-errors>
+                    </div>
+                </div> -->
+
+            </div>
+        </form>
+    </div>
+    <div class="form-group btns-group col-sm-8 text-right btns-salebook mrgn-left">
+        <button type="button" class="btn-round btn btn-secondary" [routerLink]="routerLink">
+            {{'cancel' | translate}}
+        </button>
+        <button type="button" class="btn-round btn btn-green" (click)="submit()">
+            {{'save' | translate}}
+        </button>
+    </div>
+</div>

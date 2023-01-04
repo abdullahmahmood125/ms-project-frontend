@@ -12,17 +12,28 @@ export class SCService extends BaseService {
     return this.post('task/postTask', form);
   }
 
+  saveScProposal(form: any) {
+    return this.post('proposal/postProposal', form);
+  }
 
   findAllTasks() {
     return this.get('task/taskList');
   }
 
+  findAllProposals() {
+    return this.get('proposal/proposalList');
+  }
   findAllNewTasks() {
     return this.get('task/newTaskList');
   }
 
   findTaskByTaskId(id: number) {
     return this.get('task/info/' + id);
+  }
+
+
+  findProposalByTaskId(id: number) {
+    return this.get('proposal/info/' + id);
   }
 
   //others

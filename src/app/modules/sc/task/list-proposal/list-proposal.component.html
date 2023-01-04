@@ -1,10 +1,10 @@
 <div class="card">
   <div class="container-fluid">
-    <!-- <div class="row">
-      <div class="col-sm-3 d-flex align-items-center my-3">
+    <div class="row">
+      <!-- <div class="col-sm-3 d-flex align-items-center my-3">
         <button type="button" class="btn btn-green mr-2" [routerLink]="routerLink">{{'create'|translate}}</button>
-      </div>
-    </div> -->
+      </div> -->
+    </div>
     <div class="table-responsive">
       <table class="table table-assign-to-team table-striped table-page-layout">
         <thead>
@@ -12,22 +12,22 @@
             <th>&nbsp;</th>
             <th>
               <div class="d-flex align-items-center">
-                {{'Title'|translate}}
+                {{'Task Id'}}
               </div>
             </th>
             <th>
               <div class="d-flex align-items-center">
-                {{'Timeline'|translate}}
+                {{'Worker Id'}}
               </div>
             </th>
             <th>
               <div class="d-flex align-items-center">
-                {{'Budget'|translate}}
+                {{'Proposal time'}}
               </div>
             </th>
             <th>
               <div class="d-flex align-items-center">
-                {{'Status'|translate}}
+                {{'Status'}}
               </div>
             </th>
             <th>&nbsp;</th>
@@ -36,21 +36,18 @@
         <tbody>
           <tr *ngFor="let data of dataRows; let i= index;">
             <td></td>
-            <td>{{ data.task_title }}</td>
+            <td>{{ data.task_id }}</td>
             <!-- <td>{{ commonService.findCountryById(data.countryId)?.label }}</td> -->
-            <td>{{ data.end_time }}</td>
-            <td>{{ data.payment_amount }}</td>
-            <td>{{ data.status }}</td>
+            <td>{{ data.worker_id }}</td>
+            <td>{{ data.proposal_time }}</td>
+            <td>{{ data.current_proposal_status }}</td>
             <td>
               <div class="d-flex">
-                <button type="button" class="btn list-btn" [routerLink]="[routerLink + data.id]" title="Preview"
+                <!-- <button type="button" class="btn list-btn" [routerLink]="[routerLink + data.id]" title="Preview"
                   routerlink><i class="aicon-eye1"></i></button>
                 <button type="button" class="btn list-btn" (click)="deleteById(data.id)" title="Preview" routerlink><i
-                    class="aicon-bars1"></i></button>
-                <button type="button" class="btn btn-green mr-2" routerLink="/sc/task/add-proposal">{{'Send
-                  Proposal'}}</button>
+                    class="aicon-trash1"></i></button> -->
               </div>
-
             </td>
           </tr>
         </tbody>

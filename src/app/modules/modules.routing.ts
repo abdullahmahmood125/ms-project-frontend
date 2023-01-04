@@ -31,18 +31,6 @@ const routes: Routes = [
         component: BaseComponent,
         loadChildren: () => import('./user/user.module').then(m => m.UserModule)
       }, {
-        path: 'ins',
-        component: BaseComponent,
-        loadChildren: () => import('./ins/ins.module').then(m => m.InsModule)
-      }, {
-        path: 'kyc',
-        component: BaseComponent,
-        loadChildren: () => import('./kyc/kyc.module').then(m => m.KycModule)
-      }, {
-        path: 'pv',
-        component: BaseComponent,
-        loadChildren: () => import('./pv/pv.module').then(m => m.PvModule)
-      },{
         path: 'sc',
         component: BaseComponent,
         loadChildren: () => import('./sc/sc.module').then(m => m.SCModule)

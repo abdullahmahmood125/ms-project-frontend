@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { SCBase } from '../../sc.base';
 
 @Component({
-  selector: 'app-list-task',
-  templateUrl: './list-new-task.component.html',
-  styleUrls: ['./list-new-task.component.css']
+  selector: 'app-list-proposal',
+  templateUrl: './list-proposal.component.html',
+  styleUrls: ['./list-proposal.component.css']
 })
-export class ListNewTaskComponent extends SCBase implements OnInit {
+export class ListProposalComponent extends SCBase implements OnInit {
 
   dataRows: any[] = [];
   routerLink: string = '/sc/task/add-proposal/'
@@ -15,14 +15,14 @@ export class ListNewTaskComponent extends SCBase implements OnInit {
   }
 
   ngOnInit(): void {
-    this.setPageTitle('New Tasks');
+    this.setPageTitle('Proposals');
     this.getAll();
     console.log("dataRows: " + this.dataRows);
 
   }
 
   getAll() {
-    this.scService.findAllNewTasks().subscribe((response: any) => {
+    this.scService.findAllProposals().subscribe((response: any) => {
       this.dataRows = response;
       console.log("response: " + response);
     });

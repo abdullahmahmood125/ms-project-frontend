@@ -21,10 +21,9 @@ export class SCComponent extends AppBase implements OnInit {
     // this.commonService.getCities();
     // this.commonService.getUserArtifacts();
     this.commonService.getTaskComplexities();
-
     this.commonService.getAllSkills();
     this.commonService.getUserTypes();
-
+    this.commonService.getAllProposalStatusCAtalog()
     // this.router.navigateByUrl('./sc/task/add-task')
   }
 
